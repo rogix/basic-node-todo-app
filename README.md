@@ -25,6 +25,8 @@ Where:
 - _**PATH**_ is a path on the server.
 - _**HANDLER**_ is the function executed when the route is matched.
 
+## Methods
+
 Here are some of the main methods available:
 
 - `GET`: Fetch data information from the server.
@@ -36,6 +38,8 @@ Here are some of the main methods available:
 - `PATCH`: Change specific information.
 
 - `DELETE`: Delete information.
+
+## Params
 
 The routes accept some `params`. Some of them are:
 
