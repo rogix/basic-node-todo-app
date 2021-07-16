@@ -49,7 +49,17 @@ app.put("/todo/:id", (req, res) => {
 });
 ```
 
-**_Important!_** Obnce we define a `param` if we don't pass it to the _url_ param we get a error. So if we call just `example.com/todo` and we didn't define a basic _url_ we get an error. We need to specify the param, like this: `example.com/todo/1`.
+<br>
+
+---
+
+**_NOTE_**
+
+Once we define a `param` if we don't pass it to the _url_ param we get a error. So if we call just `example.com/todo` and we didn't define a basic _url_ we get an error. We need to specify the param, like this: `example.com/todo/1`.
+
+---
+
+<br>
 
 - **Query Params**: used to dynamically pass information in URL.
 
@@ -69,7 +79,17 @@ app.put("/pagination", (req, res) => {
 });
 ```
 
-**_Important!_** Diferent from the `Route Params`, the `Query Params` are optional, so something like: `examle.com/pagination` will work just fine. Then `?page=1&total=20` is not required.
+<br>
+
+---
+
+**_NOTE_**
+
+Different from the `Route Params`, the `Query Params` are optional, so something like: `examle.com/pagination` will work just fine. Then `?page=1&total=20` is not required.
+
+---
+
+<br>
 
 - **Body Params**: used to insert and alter information, usually in a json format.
 
@@ -98,8 +118,16 @@ Assuming we have something like this:
 }
 ```
 
-**_important!_** Express accept several format files, so in order to it understand we are using a `json` file we need to use a `middleware`:
+<br>
+
+---
+
+**_NOTE_**
+
+Express accept several format files, so in order to it understand we are using a `json` file we need to use a `middleware`:
 
 ```javascript
 app.use(express.json());
 ```
+
+---
