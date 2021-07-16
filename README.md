@@ -36,3 +36,70 @@ Here are some of the main methods available:
 - `PATCH`: Change specific information.
 
 - `DELETE`: Delete information.
+
+The routes accept some `params`. Some of them are:
+
+- **Route Params**: edit, delete and search a resource.
+
+In the example below the `:id` is the param we need to know what `todo` we are talking about. To get the `id` we use the request `params` property, like this: `req.params.id`.
+
+```javascript
+app.put("/todo/:id", (req, res) => {
+  const id = req.params.id;
+});
+```
+
+**_Important!_** Obnce we define a `param` if we don't pass it to the _url_ param we get a error. So if we call just `example.com/todo` and we didn't define a basic _url_ we get an error. We need to specify the param, like this: `example.com/todo/1`.
+
+- **Query Params**: used to dynamically pass information in URL.
+
+It is commonly used to create pagination. For example:
+
+```javascript
+example.com/pagination?page=1&total=20
+```
+
+Everything after `?` is a query string.
+
+We can access query strings with request `query` property. Check it out!
+
+```javascript
+app.put("/pagination", (req, res) => {
+  const page = req.query.page;
+});
+```
+
+**_Important!_** Diferent from the `Route Params`, the `Query Params` are optional, so something like: `examle.com/pagination` will work just fine. Then `?page=1&total=20` is not required.
+
+- **Body Params**: used to insert and alter information, usually in a json format.
+
+We can access body params with request `body` property.
+
+```javascript
+app.put("/todo", (req, res) => {
+  const title = req.body.title;
+});
+```
+
+Or using [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment):
+
+```javascript
+app.put("/todo", (req, res) => {
+  const { id, title } = req.body;
+});
+```
+
+Assuming we have something like this:
+
+```json
+{
+  "id": 1,
+  "title": "New Title"
+}
+```
+
+**_important!_** Express accept several format files, so in order to it understand we are using a `json` file we need to use a `middleware`:
+
+```javascript
+app.use(express.json());
+```
